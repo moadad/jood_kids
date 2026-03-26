@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOOD KIDS Invoice Sample</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    body{margin:0;padding:26px;background:#f1f5ff;font-family:"Cairo",Arial,sans-serif;color:#13203e}
+    .sheet{max-width:1100px;margin:auto;background:#fff;border-radius:28px;padding:32px;border:1px solid #e6ebfb;box-shadow:0 25px 60px rgba(18,27,55,.12)}
+    .strip{height:10px;border-radius:999px;background:linear-gradient(90deg,#7c5cff,#9b8cff 45%,#00d6c9 76%,#ffb54a);margin-bottom:22px}
+    .head{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;margin-bottom:16px}.brand{display:flex;align-items:center;gap:16px}.logo{width:95px;height:95px;border-radius:24px;background:linear-gradient(135deg,#f5f2ff,#e8fbf9);display:grid;place-items:center;font-weight:900;border:1px solid #dce6ff}.title{font-size:34px;font-weight:900;margin:0}.sub{line-height:1.9;color:#465379}.badge{display:inline-flex;padding:9px 14px;border-radius:999px;background:rgba(124,92,255,.12);color:#5b44d0;font-weight:800}.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.chip{padding:14px;border-radius:18px;background:#f8faff;border:1px solid #e6ebfb}.chip small{display:block;color:#6a7394;margin-bottom:6px}
+    table{width:100%;border-collapse:collapse;border:1px solid #e6ebfb;border-radius:20px;overflow:hidden}th,td{padding:14px 12px;border-bottom:1px solid #edf1fc;text-align:right}th{background:#f7f9ff}.foot{display:grid;grid-template-columns:1fr 320px;gap:16px;margin-top:18px}.box{padding:18px;border-radius:22px;border:1px solid #e6ebfb;background:#fcfdff}.line{display:flex;justify-content:space-between;padding:9px 0}.grand{border-top:1px dashed #d6dcef;padding-top:14px;margin-top:10px;font-size:28px;font-weight:900;color:#7c5cff}.signs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.sign{min-height:84px;border:1px dashed #cad2ef;border-radius:18px;display:flex;align-items:flex-end;justify-content:center;padding:12px}
+    @media (max-width:900px){.head,.chips,.foot{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="strip"></div>
+    <div class="head">
+      <div class="brand">
+        <div class="logo">JOOD<br>KIDS</div>
+        <div>
+          <h1 class="title">JOOD KIDS</h1>
+          <div class="sub">منطقة الجملة - الاسكندرية - مصر<br>+20 100 555 7788<br>Tax No: TX-220055</div>
+        </div>
+      </div>
+      <div>
+        <span class="badge">فاتورة مبيعات</span>
+        <div style="margin-top:10px;font-size:32px;font-weight:900">INV-2026-00025</div>
+      </div>
+    </div>
+    <div class="chips">
+      <div class="chip"><small>التاريخ</small><strong>2026-03-26</strong></div>
+      <div class="chip"><small>العميل</small><strong>مؤسسة النور</strong></div>
+      <div class="chip"><small>الموبايل</small><strong>01001122334</strong></div>
+      <div class="chip"><small>العنوان</small><strong>مدينة نصر - القاهرة</strong></div>
+    </div>
+    <table>
+      <thead><tr><th>م</th><th>رقم الباركود</th><th>اسم الصنف</th><th>الوحدة</th><th>الكمية</th><th>السعر</th><th>الإجمالي</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>622100110011206</td><td>طقم ولادي صيفي</td><td>سيري 6</td><td>2</td><td>750.00</td><td>1,500.00</td></tr>
+        <tr><td>2</td><td>6221001100211</td><td>فستان بناتي مطرز</td><td>قطعة</td><td>5</td><td>168.00</td><td>840.00</td></tr>
+      </tbody>
+    </table>
+    <div class="foot">
+      <div class="box">
+        <strong>العميل</strong>
+        <div style="margin-top:8px;line-height:1.9;color:#465379">مؤسسة النور — 01001122334 — مدينة نصر - القاهرة</div>
+        <div class="signs"><div class="sign">توقيع المستلم</div><div class="sign">اعتماد المبيعات</div></div>
+      </div>
+      <div class="box">
+        <div class="line"><span>الإجمالي قبل الخصم</span><strong>2,340.00</strong></div>
+        <div class="line"><span>خصم نسبة (7%)</span><strong>163.80</strong></div>
+        <div class="line grand"><span>الإجمالي النهائي</span><strong>2,176.20</strong></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html><html lang='ar' dir='rtl'><head><meta charset='utf-8'>
+<style>
+@page { size: 1600px 1200px; margin: 0; }
+html,body{margin:0;padding:0;width:1600px;height:1200px;overflow:hidden;}
+body{background:radial-gradient(circle at top left,rgba(114,82,243,.14),transparent 32%),radial-gradient(circle at right,rgba(24,181,140,.08),transparent 24%),#f6f7fb;font-family:"Segoe UI",Tahoma,Arial,sans-serif;color:#1c2142}
+.glass{background:rgba(255,255,255,.82);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.7);box-shadow:0 20px 50px rgba(31,40,87,.08)}
+.app{display:grid;grid-template-columns:295px 1fr;min-height:100vh;gap:22px;padding:22px;direction:rtl}
+.sidebar{border-radius:28px;padding:24px 18px;display:flex;flex-direction:column;gap:18px}
+.brand{display:flex;gap:14px;align-items:center}.brand h1{margin:0;font-size:26px}.brand p{margin:4px 0 0;color:#6e7393;font-size:14px}.brand-mark{width:58px;height:58px;border-radius:20px;background:linear-gradient(135deg,#7252f3,#8b74ff 70%);color:#fff;display:grid;place-items:center;font-weight:800;letter-spacing:1px;box-shadow:0 16px 36px rgba(114,82,243,.32)}
+.company-card{display:flex;gap:14px;align-items:center;padding:16px;border:1px solid rgba(90,103,146,.12);border-radius:22px;background:rgba(255,255,255,.7)}
+.company-logo{width:68px;height:68px;border-radius:20px;background:linear-gradient(180deg,#fff,#efeaff);border:1px solid rgba(114,82,243,.18);display:grid;place-items:center;text-align:center;font-size:12px;line-height:1.1;font-weight:900;color:#7252f3}
+.nav{display:grid;gap:10px}.nav-btn{padding:13px 16px;border-radius:16px;background:transparent;color:#1c2142;font-size:15px}.nav-btn.active{background:linear-gradient(135deg,#7252f3,#8872ff);color:#fff;box-shadow:0 18px 35px rgba(114,82,243,.25)}
+.sidebar-footer{margin-top:auto;display:flex;flex-wrap:wrap;gap:10px}.soft-badge{padding:8px 12px;border-radius:999px;background:#fff;border:1px solid rgba(90,103,146,.12);color:#6e7393;font-size:12px}
+.main{display:flex;flex-direction:column;gap:18px}.topbar{border-radius:28px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}.topbar h2{margin:0;font-size:26px}.muted{color:#6e7393}.topbar p{margin:6px 0 0}.actions{display:flex;gap:10px}.btn{padding:12px 16px;border-radius:14px;font-weight:700}.primary{background:linear-gradient(135deg,#7252f3,#8c76ff);color:#fff;box-shadow:0 16px 34px rgba(114,82,243,.28)}.ghost{background:#fff;color:#1c2142;border:1px solid rgba(90,103,146,.12)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.stat{padding:22px;border-radius:24px}.stat span{display:block;color:#6e7393;margin-bottom:10px}.stat strong{font-size:34px;display:block;margin-bottom:8px}
+.grid{display:grid;grid-template-columns:1.25fr .95fr;gap:18px;margin-top:18px}.panel{border-radius:28px;padding:20px}.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.panel-head h3{margin:0;font-size:22px}
+.table{overflow:hidden;border-radius:20px;border:1px solid rgba(90,103,146,.12);background:rgba(255,255,255,.76)} table{width:100%;border-collapse:collapse} th,td{padding:13px 14px;text-align:right;border-bottom:1px solid rgba(90,103,146,.12);white-space:nowrap} th{background:#f8f9ff}
+.invoice-layout{display:grid;grid-template-columns:1.4fr .95fr;gap:18px;margin-top:18px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.field{padding:13px 14px;border-radius:16px;border:1px solid rgba(90,103,146,.12);background:rgba(255,255,255,.92)}.field-title{font-weight:700;font-size:14px;margin-bottom:8px}.scanner{display:grid;grid-template-columns:1fr auto auto;gap:14px;margin-top:18px}.manual{display:grid;grid-template-columns:1fr 180px auto;gap:14px;margin:16px 0 18px}
+.totals{display:grid;grid-template-columns:.9fr .75fr;gap:14px;margin-top:18px}.box{padding:16px;border-radius:22px;border:1px solid rgba(90,103,146,.12);background:rgba(255,255,255,.72)}.boxrow{display:flex;justify-content:space-between;padding:10px 0}.total{border-top:1px dashed rgba(114,82,243,.22);padding-top:14px;font-size:26px;color:#7252f3;font-weight:800}
+.preview{background:#fff;border-radius:24px;min-height:690px;border:1px solid #eceef6;padding:28px}.invoice-head{display:grid;grid-template-columns:1fr auto;gap:20px;margin-bottom:22px;align-items:center}.invoice-brand{display:flex;align-items:center;gap:14px}.invoice-logo{width:84px;height:84px;border-radius:24px;background:linear-gradient(135deg,#efeaff,#fff);border:1px solid rgba(114,82,243,.18);color:#7252f3;display:grid;place-items:center;font-weight:900;text-align:center}.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}.chip{padding:14px;border-radius:18px;background:#fafbff;border:1px solid #eceef6}.chip small{display:block;color:#6e7393;margin-bottom:8px}.barcode{height:74px;border-radius:12px;background:repeating-linear-gradient(90deg,#111 0px,#111 2px,transparent 2px,transparent 4px,#111 4px,#111 5px,transparent 5px,transparent 8px,#111 8px,#111 12px,transparent 12px,transparent 14px)}
+.mobile{display:flex;justify-content:center;align-items:center;padding:40px}.phone{width:430px;height:932px;border-radius:42px;background:#0e1327;padding:16px;box-shadow:0 30px 70px rgba(14,19,39,.3)}.phone-screen{width:100%;height:100%;border-radius:32px;background:radial-gradient(circle at top left,rgba(114,82,243,.14),transparent 32%),radial-gradient(circle at right,rgba(24,181,140,.08),transparent 24%),#f6f7fb;padding:16px;overflow:hidden}.mini-top{border-radius:24px;padding:16px}.mini-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.mini-card{padding:16px;border-radius:20px}.mini-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}.mini-btn{padding:10px;border-radius:14px;text-align:center;font-size:12px;background:#fff;border:1px solid rgba(90,103,146,.12)}
+</style>
+</head><body>
+<div class="app">
+  <aside class="sidebar glass">
+    <div class="brand"><div class="brand-mark">JK</div><div><h1>JOOD KIDS</h1><p>برنامج المبيعات الاحترافي</p></div></div>
+    <div class="company-card"><div class="company-logo">JOOD<br>KIDS</div><div><strong>JOOD KIDS</strong><br><small>منطقة الجملة - الاسكندرية - مصر</small></div></div>
+    <div class="nav"><div class="nav-btn">لوحة التحكم</div><div class="nav-btn">الفواتير</div><div class="nav-btn">العملاء</div><div class="nav-btn active">المواد</div><div class="nav-btn">التقارير</div><div class="nav-btn">المستخدمون</div><div class="nav-btn">بيانات الشركة</div></div>
+    <div class="sidebar-footer"><div class="soft-badge">PWA</div><div class="soft-badge">Excel</div><div class="soft-badge">Barcode</div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar glass"><div><h2>المواد</h2><p class="muted">بطاقات أصناف احترافية مع باركود وأسعار ومقاسات</p></div><div class="actions"><div class="btn primary">حفظ المادة</div><div class="btn ghost">طباعة الباركود</div></div></div>
+    <div class="grid" style="grid-template-columns:1fr 1.25fr">
+      <div class="panel glass">
+        <div class="panel-head"><h3>بطاقة المادة</h3></div>
+        <div class="form-grid">
+          <div class="field"><div class="field-title">رقم المادة</div>1005</div><div class="field"><div class="field-title">اسم الصنف</div>فستان بناتي مطرز</div>
+          <div class="field"><div class="field-title">الوحدة</div>قطعة</div><div class="field"><div class="field-title">عدد السيري</div>9</div>
+          <div class="field"><div class="field-title">باركود القطعة</div>6221001100211</div><div class="field"><div class="field-title">باركود السيري</div>622100110021109</div>
+          <div class="field"><div class="field-title">سعر القطعة</div>168.00</div><div class="field"><div class="field-title">سعر السيري</div>1,512.00</div>
+          <div class="field"><div class="field-title">المقاسات</div>4-6-8-10</div><div class="field"><div class="field-title">المخزون</div>95</div>
+        </div>
+        <div class="box" style="margin-top:16px"><strong>معاينة طباعة الباركود</strong><div style="margin:12px 0 6px">باركود القطعة</div><div class="barcode"></div><div style="text-align:center;margin-top:10px;font-weight:800;letter-spacing:2px">6221001100211</div><div style="margin:18px 0 6px">باركود السيري</div><div class="barcode"></div><div style="text-align:center;margin-top:10px;font-weight:800;letter-spacing:2px">622100110021109</div></div>
+      </div>
+      <div class="panel glass">
+        <div class="panel-head"><h3>المواد المسجلة</h3></div>
+        <div class="table"><table><thead><tr><th>رقم المادة</th><th>اسم الصنف</th><th>باركود القطعة</th><th>باركود السيري</th><th>عدد السيري</th><th>سعر القطعة</th><th>سعر السيري</th><th>المخزون</th></tr></thead><tbody><tr><td>1001</td><td>طقم ولادي صيفي</td><td>6221001100112</td><td>622100110011206</td><td>6</td><td>125.00</td><td>750.00</td><td>120</td></tr><tr><td>1002</td><td>فستان بناتي مطرز</td><td>6221001100211</td><td>622100110021109</td><td>9</td><td>168.00</td><td>1,512.00</td><td>95</td></tr><tr><td>1003</td><td>بيجامة أطفال شتوي</td><td>6221001100310</td><td>622100110031012</td><td>12</td><td>92.00</td><td>1,104.00</td><td>180</td></tr><tr><td>1004</td><td>تيشيرت قطن</td><td>6221001100419</td><td>622100110041906</td><td>6</td><td>64.00</td><td>384.00</td><td>210</td></tr></tbody></table></div>
+      </div>
+    </div>
+  </main>
+</div>
+</body></html>

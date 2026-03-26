@@ -1,0 +1,11 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isAdmin() { return signedIn() && request.auth.uid == 'JxKXouwjdadht4wSMPf1qtbeW9n1'; }
+    match /{document=**} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+  }
+}
