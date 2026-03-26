@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOOD KIDS | ERP Suite</title>
+  <meta name="theme-color" content="#5b3df5" />
+  <meta name="description" content="JOOD KIDS ERP Suite" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <div class="app-shell">
+    <aside class="sidebar glass" id="sidebar">
+      <div class="brand-block">
+        <div class="brand-mark" id="sidebarBrandMark">JK</div>
+        <div>
+          <h1>JOOD KIDS</h1>
+          <span>ERP Suite</span>
+        </div>
+      </div>
+
+      <div class="company-side-card">
+        <div class="company-logo" id="companyLogoPreview">JK</div>
+        <div class="company-side-text">
+          <strong id="companyNameSidebar">JOOD KIDS</strong>
+          <small id="companyAddressSidebar">Alexandria · Egypt</small>
+        </div>
+      </div>
+
+      <nav class="main-nav">
+        <button class="nav-btn active" data-view="overview"><span class="nav-ic">⌂</span><span>الرئيسية</span></button>
+        <button class="nav-btn" data-view="invoices"><span class="nav-ic">▣</span><span>الفواتير</span></button>
+        <button class="nav-btn" data-view="customers"><span class="nav-ic">◉</span><span>العملاء</span></button>
+        <button class="nav-btn" data-view="items"><span class="nav-ic">◌</span><span>المواد</span></button>
+        <button class="nav-btn" data-view="reports"><span class="nav-ic">◍</span><span>التقارير</span></button>
+        <button class="nav-btn" data-view="activity"><span class="nav-ic">≋</span><span>سجل الحركات</span></button>
+        <button class="nav-btn" data-view="users"><span class="nav-ic">◎</span><span>المستخدمون</span></button>
+        <button class="nav-btn" data-view="settings"><span class="nav-ic">◇</span><span>الإعدادات</span></button>
+      </nav>
+
+      <div class="sidebar-actions">
+        <button class="ghost-btn" id="installBtn">تثبيت</button>
+        <button class="ghost-btn" id="seedBtn">بيانات تجريبية</button>
+      </div>
+    </aside>
+
+    <main class="main-stage" id="mainStage">
+      <header class="topbar glass">
+        <div class="topbar-main">
+          <button class="menu-toggle mobile-only" id="menuToggle" aria-label="القائمة">
+            <span></span><span></span><span></span>
+          </button>
+          <div>
+            <h2 id="viewTitle">الرئيسية</h2>
+            <div class="crumbs" id="breadcrumbs">JOOD KIDS / Dashboard</div>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="user-chip" id="currentUserBadge">Guest</div>
+          <button class="ghost-btn" id="loginBtn">تسجيل الدخول</button>
+        </div>
+      </header>
+
+      <section id="overview" class="screen active-screen">
+        <div class="hero-strip glass">
+          <div class="hero-copy">
+            <span class="section-label">JOOD KIDS</span>
+            <h3>لوحة تشغيل احترافية</h3>
+          </div>
+          <div class="hero-actions">
+            <button class="primary-btn" id="heroNewInvoiceBtn">فاتورة جديدة</button>
+            <button class="ghost-btn" data-open-view="reports">التقارير</button>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <article class="kpi-card glass"><span>الفواتير</span><strong id="statInvoices">0</strong><small>إجمالي الفواتير</small></article>
+          <article class="kpi-card glass"><span>المبيعات</span><strong id="statSales">0.00</strong><small>إجمالي الصافي</small></article>
+          <article class="kpi-card glass"><span>العملاء</span><strong id="statCustomers">0</strong><small>العملاء النشطون</small></article>
+          <article class="kpi-card glass"><span>المواد</span><strong id="statItems">0</strong><small>بطاقات الأصناف</small></article>
+        </div>
+
+        <div class="overview-grid">
+          <section class="panel glass">
+            <div class="panel-head"><h3>آخر الفواتير</h3></div>
+            <div id="latestInvoices" class="list-wrap compact"></div>
+          </section>
+          <section class="panel glass">
+            <div class="panel-head"><h3>أعلى العملاء</h3></div>
+            <div id="topCustomers" class="stack-cards"></div>
+          </section>
+        </div>
+
+        <div class="overview-grid second-grid">
+          <section class="panel glass">
+            <div class="panel-head"><h3>حركة المبيعات</h3></div>
+            <div id="salesTrend" class="trend-grid"></div>
+          </section>
+          <section class="panel glass">
+            <div class="panel-head"><h3>الوصول السريع</h3></div>
+            <div class="quick-grid">
+              <button class="quick-tile" data-open-view="customers">العملاء</button>
+              <button class="quick-tile" data-open-view="items">المواد</button>
+              <button class="quick-tile" data-open-view="invoices">فاتورة جديدة</button>
+              <button class="quick-tile" data-open-view="activity">سجل الحركات</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="invoices" class="screen">
+        <div class="workbench-grid single-workbench">
+          <section class="panel glass">
+            <div class="panel-head tight-head">
+              <div class="title-with-badge">
+                <h3>فاتورة مبيعات</h3>
+                <span id="invoiceEditorBadge" class="editor-badge">فاتورة جديدة</span>
+              </div>
+              <div class="inline-actions">
+                <button class="ghost-btn" id="newInvoiceBtn">جديد</button>
+                <button class="ghost-btn" id="cancelEditInvoiceBtn">إلغاء التعديل</button>
+                <button class="ghost-btn" id="previewInvoiceBtn">معاينة</button>
+                <button class="ghost-btn" id="printInvoiceBtn">PDF A4</button>
+                <button class="ghost-btn" id="imageInvoiceBtn">صورة</button>
+                <button class="primary-btn" id="saveInvoiceBtn">حفظ الفاتورة</button>
+              </div>
+            </div>
+
+            <div class="form-grid four-col">
+              <label><span>رقم الفاتورة</span><input id="invoiceNumber" type="text" readonly /></label>
+              <label><span>التاريخ</span><input id="invoiceDate" type="date" /></label>
+              <label><span>العميل</span><select id="invoiceCustomer"></select></label>
+              <label><span>الموبايل</span><input id="invoiceCustomerPhone" type="text" readonly /></label>
+            </div>
+
+            <div class="finder-box luxe-finder">
+              <div class="finder-top">
+                <div>
+                  <h4>إضافة تلقائية بالباركود</h4>
+                  <div class="finder-note">قارئ / كاميرا / إضافة تلقائية</div>
+                </div>
+                <div class="inline-actions compact-actions">
+                  <button class="ghost-btn" id="cameraBtn">كاميرا</button>
+                </div>
+              </div>
+              <div class="finder-grid">
+                <label class="wide-cell"><span>رقم المادة / الباركود</span><input id="barcodeInput" type="text" inputmode="numeric" autocomplete="off" placeholder="Barcode / Code" /></label>
+                <label><span>النوع</span><select id="lookupMode"><option value="auto">تلقائي</option><option value="piece">قطعة</option><option value="series">سيري</option></select></label>
+                <label><span>الكمية</span><input id="lookupQty" type="number" min="1" value="1" /></label>
+                <button class="primary-btn align-end" id="scanAddBtn">إضافة</button>
+              </div>
+              <div id="lookupResult" class="lookup-card empty-state"></div>
+            </div>
+
+            <div class="toolbar-card">
+              <label class="grow"><span>إضافة يدويًا</span><select id="manualItemSelect"></select></label>
+              <label><span>النوع</span><select id="manualAddMode"><option value="piece">قطعة</option><option value="series">سيري</option></select></label>
+              <button class="ghost-btn align-end" id="addManualItemBtn">إضافة من القائمة</button>
+            </div>
+
+            <div class="table-shell">
+              <table>
+                <thead>
+                  <tr>
+                    <th>م</th>
+                    <th>الباركود</th>
+                    <th>الصنف</th>
+                    <th>الوحدة</th>
+                    <th>الكمية</th>
+                    <th>السعر</th>
+                    <th>الإجمالي</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="invoiceLines"></tbody>
+              </table>
+            </div>
+
+            <div class="totals-grid">
+              <div class="totals-panel soft-panel">
+                <label><span>نوع الخصم</span><select id="discountMode"><option value="value">قيمة</option><option value="percent">نسبة %</option></select></label>
+                <label><span>الخصم</span><input id="discountValue" type="number" min="0" value="0" /></label>
+              </div>
+              <div class="totals-panel dark-panel">
+                <div><span>الإجمالي</span><strong id="subTotalValue">0.00</strong></div>
+                <div><span>الخصم</span><strong id="discountAmountValue">0.00</strong></div>
+                <div class="grand-row"><span>الصافي</span><strong id="grandTotalValue">0.00</strong></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="customers" class="screen">
+        <div class="split-grid">
+          <section class="panel glass">
+            <div class="panel-head">
+              <h3>العملاء</h3>
+              <div class="inline-actions">
+                <button class="ghost-btn" id="exportCustomersBtn">تصدير Excel</button>
+                <button class="ghost-btn" id="importCustomersBtn">استيراد Excel</button>
+              </div>
+            </div>
+            <div class="form-grid two-col">
+              <label><span>اسم العميل</span><input id="customerName" type="text" /></label>
+              <label><span>الموبايل</span><input id="customerPhone" type="text" /></label>
+              <label><span>المدينة</span><input id="customerCity" type="text" /></label>
+              <label><span>العنوان</span><input id="customerAddress" type="text" /></label>
+            </div>
+            <button class="primary-btn wide-btn" id="addCustomerBtn">حفظ العميل</button>
+          </section>
+
+          <section class="panel glass">
+            <div class="panel-head">
+              <h3>سجل العملاء</h3>
+              <input id="customerSearch" class="panel-search" type="search" placeholder="بحث" />
+            </div>
+            <div id="customersTable" class="list-wrap"></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="customer-detail" class="screen detail-screen">
+        <div class="detail-top glass">
+          <div>
+            <div class="section-label">Customer</div>
+            <h3 id="customerDetailName">—</h3>
+            <div class="detail-meta" id="customerDetailMeta">—</div>
+          </div>
+          <div class="inline-actions">
+            <button class="ghost-btn" id="backToReportsBtn">التقارير</button>
+            <button class="ghost-btn" id="openCustomerInvoicesBtn">الفواتير</button>
+          </div>
+        </div>
+        <div class="kpi-grid detail-kpis">
+          <article class="kpi-card glass"><span>عدد الفواتير</span><strong id="customerInvoiceCount">0</strong></article>
+          <article class="kpi-card glass"><span>إجمالي المبيعات</span><strong id="customerSalesTotal">0.00</strong></article>
+          <article class="kpi-card glass"><span>آخر فاتورة</span><strong id="customerLastInvoice">—</strong></article>
+        </div>
+        <section class="panel glass">
+          <div class="panel-head"><h3>فواتير العميل</h3></div>
+          <div id="customerInvoicesTable" class="list-wrap"></div>
+        </section>
+      </section>
+
+      <section id="items" class="screen">
+        <div class="split-grid">
+          <section class="panel glass">
+            <div class="panel-head">
+              <h3>بطاقة المادة</h3>
+              <div class="inline-actions">
+                <button class="ghost-btn" id="exportItemsBtn">تصدير Excel</button>
+                <button class="ghost-btn" id="importItemsBtn">استيراد Excel</button>
+              </div>
+            </div>
+            <div class="form-grid two-col">
+              <label><span>رقم المادة</span><input id="itemCode" type="text" readonly /></label>
+              <label><span>اسم الصنف</span><input id="itemName" type="text" /></label>
+              <label><span>الوحدة</span><input id="itemUnit" type="text" value="قطعة" /></label>
+              <label><span>عدد السيري</span><select id="itemSeriesQty"><option value="6">6</option><option value="9">9</option><option value="12">12</option><option value="18">18</option></select></label>
+              <label><span>باركود القطعة</span><input id="itemPieceBarcode" type="text" inputmode="numeric" /></label>
+              <label><span>باركود السيري</span><input id="itemSeriesBarcode" type="text" inputmode="numeric" /></label>
+              <label><span>سعر القطعة</span><input id="itemPiecePrice" type="number" min="0" /></label>
+              <label><span>سعر السيري</span><input id="itemSeriesPrice" type="number" min="0" /></label>
+              <label><span>المقاسات</span><input id="itemSizes" type="text" placeholder="2-4-6-8" /></label>
+              <label><span>المخزون</span><input id="itemStock" type="number" min="0" value="0" /></label>
+            </div>
+            <div class="inline-actions two-row-actions">
+              <button class="ghost-btn" id="scanPieceBarcodeBtn">قراءة باركود القطعة</button>
+              <button class="ghost-btn" id="scanSeriesBarcodeBtn">قراءة باركود السيري</button>
+              <button class="ghost-btn" id="generateSeriesBarcodeBtn">توليد باركود السيري</button>
+              <button class="ghost-btn" id="printBarcodeBtn">طباعة الباركود</button>
+            </div>
+            <button class="primary-btn wide-btn" id="addItemBtn">حفظ المادة</button>
+          </section>
+
+          <section class="panel glass">
+            <div class="panel-head">
+              <h3>المواد</h3>
+              <input id="itemSearch" class="panel-search" type="search" placeholder="بحث" />
+            </div>
+            <div id="itemsTable" class="list-wrap"></div>
+            <div id="barcodeCard" class="barcode-card"></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="reports" class="screen">
+        <div class="report-head glass">
+          <div class="report-filters">
+            <label><span>من</span><input id="reportFrom" type="date" /></label>
+            <label><span>إلى</span><input id="reportTo" type="date" /></label>
+            <input id="invoiceSearch" class="panel-search wide-search" type="search" placeholder="بحث فاتورة / عميل" />
+          </div>
+          <div class="inline-actions">
+            <button class="ghost-btn" id="exportInvoicesBtn">تصدير Excel</button>
+            <button class="ghost-btn" id="importInvoicesBtn">استيراد Excel</button>
+          </div>
+        </div>
+        <div class="overview-grid">
+          <section class="panel glass"><div class="panel-head"><h3>تقرير الفواتير</h3></div><div id="invoicesReport" class="list-wrap"></div></section>
+          <section class="panel glass"><div class="panel-head"><h3>تقرير العملاء</h3></div><div id="customersReport" class="list-wrap"></div></section>
+        </div>
+      </section>
+
+      <section id="activity" class="screen">
+        <div class="report-head glass">
+          <div>
+            <div class="section-label">Admin Log</div>
+            <h3 style="margin:10px 0 0">سجل الحركات</h3>
+          </div>
+          <div class="inline-actions">
+            <input id="activitySearch" class="panel-search" type="search" placeholder="بحث في السجل" />
+            <button class="ghost-btn" id="exportActivityBtn">تصدير Excel</button>
+          </div>
+        </div>
+        <section class="panel glass">
+          <div id="activityTable" class="list-wrap"></div>
+        </section>
+      </section>
+
+      <section id="invoice-detail" class="screen detail-screen">
+        <div class="detail-top glass">
+          <div>
+            <div class="section-label">Invoice</div>
+            <h3 id="invoiceDetailTitle">—</h3>
+            <div class="detail-meta" id="invoiceDetailMeta">—</div>
+          </div>
+          <div class="inline-actions">
+            <button class="ghost-btn" id="backToCustomerBtn">العميل</button>
+            <button class="ghost-btn" id="editSavedInvoiceBtn">تعديل</button>
+            <button class="danger-btn" id="deleteSavedInvoiceBtn">حذف</button>
+            <button class="ghost-btn" id="printSavedInvoiceBtn">PDF A4</button>
+            <button class="ghost-btn" id="imageSavedInvoiceBtn">صورة</button>
+          </div>
+        </div>
+        <section class="panel glass print-keep">
+          <div id="invoiceDetailPreview" class="invoice-preview"></div>
+        </section>
+      </section>
+
+      <section id="users" class="screen">
+        <div class="split-grid">
+          <section class="panel glass">
+            <div class="panel-head"><h3>مستخدم جديد</h3></div>
+            <div class="form-grid two-col">
+              <label><span>الاسم</span><input id="userName" type="text" /></label>
+              <label><span>البريد</span><input id="userEmail" type="email" /></label>
+              <label><span>كلمة المرور</span><input id="userPassword" type="password" autocomplete="new-password" /></label>
+              <label><span>الصلاحية</span><select id="userRole"><option value="admin">Admin</option><option value="sales">Sales</option><option value="viewer">Viewer</option></select></label>
+              <label><span>الحالة</span><select id="userActive"><option value="true">نشط</option><option value="false">موقوف</option></select></label>
+            </div>
+            <button class="primary-btn wide-btn" id="addUserBtn">حفظ المستخدم</button>
+          </section>
+          <section class="panel glass"><div class="panel-head"><h3>المستخدمون</h3></div><div id="usersTable" class="list-wrap"></div></section>
+        </div>
+      </section>
+
+      <section id="settings" class="screen">
+        <div class="split-grid">
+          <section class="panel glass">
+            <div class="panel-head"><h3>بيانات الشركة</h3></div>
+            <div class="form-grid two-col">
+              <label><span>اسم الشركة</span><input id="companyName" type="text" /></label>
+              <label><span>المدينة</span><input id="companyCity" type="text" /></label>
+              <label><span>العنوان</span><input id="companyAddress" type="text" /></label>
+              <label><span>الموبايل</span><input id="companyPhone" type="text" /></label>
+              <label><span>الرقم الضريبي</span><input id="companyTax" type="text" /></label>
+              <label><span>النص المختصر</span><input id="companyLogoText" type="text" /></label>
+              <label class="full-row"><span>شعار</span><input id="companyLogoUpload" type="file" accept="image/*" /></label>
+            </div>
+            <button class="primary-btn wide-btn" id="saveCompanyBtn">حفظ</button>
+          </section>
+          <section class="panel glass settings-side">
+            <div class="company-showcase luxe-company-showcase">
+              <div class="big-logo" id="settingsLogoPreview">JK</div>
+              <div>
+                <h3 id="settingsCompanyName">JOOD KIDS</h3>
+                <div class="detail-meta" id="settingsCompanyMeta">Alexandria · Egypt</div>
+              </div>
+            </div>
+            <div class="code-box"><pre>Firebase Project: erp-pro-7307c
+Auth: Enabled
+Database: Firestore
+Storage: Not Used
+Firestore Path: erp/appdata
+Admin UID: JxKXouwjdadht4wSMPf1qtbeW9n1
+Admin Email: admin@erp-pro.local</pre></div>
+            <div class="panel-head" style="margin-top:14px"><h3>النسخ الاحتياطي والمزامنة</h3></div>
+            <div class="inline-actions">
+              <button class="ghost-btn" id="exportSystemExcelBtn">تصدير النظام Excel</button>
+              <button class="ghost-btn" id="importSystemExcelBtn">استيراد النظام Excel</button>
+              <button class="ghost-btn" id="exportSystemJsonBtn">نسخة JSON</button>
+              <button class="ghost-btn" id="importSystemJsonBtn">استيراد JSON</button>
+            </div>
+            <div class="inline-actions">
+              <button class="ghost-btn" id="pullFirebaseBtn">تحميل Firebase</button>
+              <button class="primary-btn" id="pushFirebaseBtn">رفع إلى Firebase</button>
+            </div>
+            <div class="detail-meta" id="firebaseStatus">Firebase Ready</div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="loginModal" class="modal show">
+    <div class="modal-card glass slim-card login-card">
+      <div class="login-cover">
+        <div class="brand-block center-brand">
+          <div class="brand-mark" id="loginBrandMark">JK</div>
+          <div><h1>JOOD KIDS</h1><span>ERP Suite</span></div>
+        </div>
+        <div class="login-copy">
+          <h3>تسجيل الدخول</h3>
+          <p>ERP احترافي وسلس وسريع</p>
+        </div>
+      </div>
+      <div class="form-grid one-col login-form-grid">
+        <label><span>المستخدم</span><input id="loginEmail" type="text" autocomplete="username" placeholder="admin@erp-pro.local" /></label>
+        <label><span>كلمة المرور</span><input id="loginPassword" type="password" autocomplete="current-password" placeholder="••••••••" /></label>
+      </div>
+      <div id="loginStatus" class="login-status"></div>
+      <button class="primary-btn wide-btn" id="confirmLoginBtn">دخول</button>
+    </div>
+  </div>
+
+  <div id="scannerModal" class="modal">
+    <div class="modal-card glass camera-card">
+      <div class="panel-head"><h3>قراءة باركود</h3><button class="ghost-btn" id="closeScannerBtn">إغلاق</button></div>
+      <div class="camera-box"><video id="cameraVideo" autoplay playsinline></video></div>
+      <div class="detail-meta" id="scannerStatus">جاهز للقراءة</div>
+    </div>
+  </div>
+
+  <div id="previewModal" class="modal">
+    <div class="modal-card glass preview-modal-card">
+      <div class="panel-head"><h3>معاينة الفاتورة</h3><button class="ghost-btn" id="closePreviewBtn">إغلاق</button></div>
+      <div id="invoicePreview" class="invoice-preview"></div>
+    </div>
+  </div>
+
+  <input id="importCustomersInput" type="file" hidden accept=".xlsx,.xls,.xml,.html,.csv" />
+  <input id="importItemsInput" type="file" hidden accept=".xlsx,.xls,.xml,.html,.csv" />
+  <input id="importInvoicesInput" type="file" hidden accept=".xlsx,.xls,.xml,.html,.csv" />
+  <input id="importSystemExcelInput" type="file" hidden accept=".xlsx,.xls,.xml,.html,.csv" />
+  <input id="importSystemJsonInput" type="file" hidden accept=".json" />
+
+  <div id="toast" class="toast"></div>
+
+  <script src="firebase-config.js"></script>
+  <script type="module" src="firebase-service.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

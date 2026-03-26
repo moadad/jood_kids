@@ -1,0 +1,21 @@
+{
+  "name": "JOOD KIDS ERP Suite",
+  "short_name": "JOOD ERP",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#eef2ff",
+  "theme_color": "#5b3df5",
+  "description": "JOOD KIDS ERP Suite Enterprise",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
