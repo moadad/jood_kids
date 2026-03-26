@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOOD KIDS Invoice Sample</title>
+  <style>
+    body{margin:0;padding:28px;background:#eef2ff;font-family:Inter,"Segoe UI",Tahoma,Arial,sans-serif;color:#151b37}
+    .sheet{max-width:1100px;margin:0 auto;background:#fff;border-radius:30px;overflow:hidden;box-shadow:0 24px 60px rgba(17,24,57,.12);position:relative}
+    .watermark{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);font-size:96px;font-weight:900;color:rgba(91,61,245,.05);letter-spacing:.16em}
+    .banner{padding:24px 26px 18px;background:linear-gradient(135deg,#111733,#223063 55%,#2e4790);color:#fff}
+    .top{display:flex;justify-content:space-between;gap:16px;align-items:center}
+    .brand{display:flex;gap:16px;align-items:center}
+    .logo{width:96px;height:96px;border-radius:28px;background:linear-gradient(180deg,#fff,#efeaff);display:grid;place-items:center;font-size:28px;font-weight:900;color:#5b3df5}
+    .side{text-align:left}
+    .label{display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;font-size:.78rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    .number{font-size:1.18rem;font-weight:900;color:#ffcb70;margin-top:8px}
+    .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:18px 24px 0}
+    .card{padding:16px;border-radius:20px;background:#fafbff;border:1px solid #edf0f8}
+    .card small{display:block;color:#657090;margin-bottom:8px}
+    .table-wrap{padding:18px 24px 0}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:13px 10px;border:1px solid #edf0f8;text-align:right}
+    th{background:#f7f9ff}
+    .footer{display:grid;grid-template-columns:1fr 340px;gap:18px;padding:18px 24px 0}
+    .note,.summary{border-radius:24px;padding:18px}
+    .note{background:#fafbff}
+    .summary{background:linear-gradient(180deg,#121a39,#1b2a58);color:#fff}
+    .summary div{display:flex;justify-content:space-between;padding:9px 0}
+    .grand{border-top:1px dashed rgba(255,255,255,.22);padding-top:12px;margin-top:8px;font-size:1.18rem;font-weight:900}
+    .signs{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:18px 24px 24px}
+    .sign{height:84px;border:1px dashed #cfd6ee;border-radius:18px;display:flex;align-items:flex-end;justify-content:center;padding:12px;background:#fff;color:#5f6784}
+    @media (max-width:760px){.top,.footer,.meta,.signs{grid-template-columns:1fr;display:grid}.side{text-align:right}}
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="watermark">JOOD KIDS</div>
+    <div class="banner">
+      <div class="top">
+        <div class="brand">
+          <div class="logo">JK</div>
+          <div>
+            <h2 style="margin:0 0 6px;font-size:1.65rem">JOOD KIDS</h2>
+            <div style="line-height:1.75;color:rgba(255,255,255,.82)">Wholesale District · Alexandria · Egypt</div>
+            <div style="line-height:1.75;color:rgba(255,255,255,.82)">+20 100 555 7788 · TX-220055</div>
+          </div>
+        </div>
+        <div class="side">
+          <div class="label">Sales Invoice</div>
+          <h3 style="margin:10px 0 8px;font-size:1.9rem">فاتورة مبيعات</h3>
+          <div class="number">INV-2026-00031</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="meta">
+      <div class="card"><small>التاريخ</small><strong>26/03/2026</strong></div>
+      <div class="card"><small>العميل</small><strong>بيت الأطفال</strong></div>
+      <div class="card"><small>الموبايل</small><strong>01008877665</strong></div>
+      <div class="card"><small>المدينة</small><strong>الاسكندرية</strong></div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>م</th><th>الباركود</th><th>الصنف</th><th>الوحدة</th><th>الكمية</th><th>السعر</th><th>الإجمالي</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>6221001100112</td><td>طقم ولادي صيفي</td><td>قطعة</td><td>8</td><td>125.00</td><td>1000.00</td></tr>
+          <tr><td>2</td><td>622100110021109</td><td>فستان بناتي مطرز</td><td>سيري 9</td><td>2</td><td>1512.00</td><td>3024.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footer">
+      <div class="note">
+        <h4 style="margin:0 0 10px;font-size:1rem">بيانات العميل</h4>
+        <p style="margin:0;line-height:1.9;color:#2e3454">سيدي جابر · الاسكندرية</p>
+        <p style="margin:12px 0 0;line-height:1.9;color:#2e3454">شكرًا لتعاملكم مع JOOD KIDS</p>
+      </div>
+      <div class="summary">
+        <div><span>الإجمالي</span><strong>4024.00</strong></div>
+        <div><span>الخصم</span><strong>124.00</strong></div>
+        <div class="grand"><span>الصافي</span><strong>3900.00</strong></div>
+      </div>
+    </div>
+
+    <div class="signs">
+      <div class="sign">توقيع المستلم</div>
+      <div class="sign">توقيع البائع</div>
+    </div>
+  </div>
+</body>
+</html>
